@@ -1,44 +1,27 @@
 import style from "./LoginPage.module.css";
 import { useState } from "react";
-import { useUser } from "../context/UserContext";
-import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [contraseña, setContraseña] = useState("");
-  const [mensaje, setMensaje] = useState("");
 
-  const { login } = useUser();
-  const navigate = useNavigate();
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setMensaje("");
-
+  function handleSubmit(e) {
+    e.preventDefault()
     if (!email || !contraseña) {
-      setMensaje("Il faut remplir tous les champs");
+      alert("hay que remplir todo el cuestionario")
       return;
     }
 
     if (contraseña.length < 6) {
-      setMensaje("Le mot de passe doit avoir au moins 6 caractères");
+      alert(" debes escribir mas de 6 letras")
       return;
     }
-
-    // 👉 appel réel au backend
-    const success = await login(email, contraseña);
-
-    if (success) {
-      navigate("/profile");
-    } else {
-      setMensaje("Email ou mot de passe incorrect");
-    }
+    alert ('usuario logado')
   }
 
   return (
     <div className={style.formulario}>
-      <h2>Login</h2>
-
+      <h2>LoginPage</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="mail">Mail</label>
         <input
@@ -46,22 +29,24 @@ function LoginPage() {
           type="text"
           placeholder="Mail"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value)
+          }}
         />
 
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">password</label>
         <input
           id="password"
-          type="password"
-          placeholder="Password"
+          type="text"
+          placeholder="password"
           value={contraseña}
-          onChange={(e) => setContraseña(e.target.value)}
+          onChange={(e) => {
+            setContraseña(e.target.value)
+          }}
         />
 
-        <button type="submit">Enviar</button>
+        <button>Enviar</button>
       </form>
-
-      {mensaje && <p>{mensaje}</p>}
     </div>
   );
 }
