@@ -1,0 +1,39 @@
+.carta {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 15em;
+  height: 31em;
+  border-radius: 10px;
+  border: 2px solid black;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.carta p, .carta li {
+  font-size: 0.6em;
+}
+.carta h1 {
+font-size: 1em;
+}
+
+.cuerpo {
+  flex-grow: 1;
+}
+
+.imageWrapper img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  max-height: 250px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.carta .botones {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  gap: 1.7rem;
+  padding: 0.75rem;
+}

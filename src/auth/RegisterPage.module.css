@@ -1,0 +1,21 @@
+
+
+.formulario {
+    display:  flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 30em;
+    max-width: 800px;
+    
+}
+
+.formulario input {
+    border: 2px solid black;
+
+}
